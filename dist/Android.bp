@@ -44,6 +44,7 @@ cc_defaults {
         "-DSQLITE_DEFAULT_LEGACY_ALTER_TABLE",
         "-DSQLITE_PRINTF_PRECISION_LIMIT=100000000",
         "-Wno-unused-parameter",
+        "-Wno-string-plus-int",
         "-Werror",
 
         // Default value causes sqlite3_open_v2 to return error if DB is missing.
