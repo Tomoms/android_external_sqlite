@@ -293,7 +293,6 @@ release_package_libsqlite3_library_shell_config {
                 "libsqlite",
                 "libandroidicu",
                 "liblog",
-                "libutils",
             ],
         },
         host: {
