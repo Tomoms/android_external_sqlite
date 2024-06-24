@@ -73,6 +73,7 @@ cc_defaults {
         "-DSQLITE_OMIT_JSON",
         "-DSQLITE_ALLOW_ROWID_IN_VIEW",
         "-DSQLITE_DEFAULT_WAL_SYNCHRONOUS=1",
+        "-DSQLITE_ENABLE_BYTECODE_VTAB",
         "-Wno-unused-parameter",
         "-Werror",
 
@@ -136,8 +137,6 @@ cc_library {
             static_libs: [
                 "liblog",
             ],
-        },
-        not_windows: {
             shared_libs: [
                 "libicui18n",
                 "libicuuc",
@@ -156,6 +155,10 @@ cc_library {
         },
     },
     export_include_dirs: ["."],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.virt",
+    ],
 
     afdo: true,
 }
@@ -207,10 +210,6 @@ cc_binary {
                 "libsqlite",
                 // sqlite3MemsysAlarm uses LOG()
                 "liblog",
-            ],
-        },
-        not_windows: {
-            static_libs: [
                 "libicui18n",
                 "libicuuc",
                 "libicuuc_stubdata",
